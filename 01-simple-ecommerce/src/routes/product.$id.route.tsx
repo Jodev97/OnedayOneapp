@@ -1,4 +1,4 @@
-import { createFileRoute, useParams } from '@tanstack/react-router';
+import { createFileRoute, useParams, Link } from '@tanstack/react-router';
 import { useState, useEffect } from 'react';
 import { fetchProduct } from '@/api/products';
 import { useProductCacheStore } from '@/stores/productCacheStore';
@@ -64,15 +64,19 @@ function ProductDetailPage() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Image */}
-      <div className="flex items-center justify-center bg-gray-100 rounded-lg p-8">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="max-h-96 object-contain"
-        />
-      </div>
+    <div>
+      <Link to="/" className="inline-flex items-center gap-2 mb-6 text-blue-600 hover:text-blue-800">
+        ← Back to Products
+      </Link>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Image */}
+        <div className="flex items-center justify-center bg-gray-100 rounded-lg p-8">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="max-h-96 object-contain"
+          />
+        </div>
 
       {/* Product Info */}
       <div>
@@ -126,6 +130,7 @@ function ProductDetailPage() {
               {isFavorited ? '❤️ Favorited' : '🤍 Favorite'}
             </button>
           </div>
+        </div>
         </div>
       </div>
     </div>

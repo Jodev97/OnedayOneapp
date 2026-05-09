@@ -7,8 +7,8 @@ export function Header() {
   const favoriteCount = useFavoritesStore((state) => state.getFavoriteCount());
 
   return (
-    <header className="bg-white border-b border-gray-200">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="bg-white border-b border-gray-200" role="banner">
+      <nav className="container mx-auto px-4 py-4 flex items-center justify-between" role="navigation" aria-label="Main navigation">
         <Link to="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700">
           Store
         </Link>

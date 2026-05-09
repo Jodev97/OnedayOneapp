@@ -14,12 +14,12 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-medium rounded-lg transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles = 'font-medium rounded-lg transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 active:bg-gray-400',
-    danger: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800',
+    primary: 'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring-blue-500',
+    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 active:bg-gray-400 focus:ring-gray-500',
+    danger: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 focus:ring-red-500',
   };
 
   const sizeStyles = {
