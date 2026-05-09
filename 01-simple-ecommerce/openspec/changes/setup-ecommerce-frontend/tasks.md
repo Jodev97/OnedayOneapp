@@ -1,0 +1,156 @@
+## 1. Project Setup & Configuration
+
+- [ ] 1.1 Initialize Vite project with React 18 and TypeScript
+- [ ] 1.2 Install core dependencies with pnpm (TanStack Router, Zustand, Tailwind CSS)
+- [ ] 1.3 Configure TypeScript with strict mode (tsconfig.json)
+- [ ] 1.4 Set up Tailwind CSS with configuration file
+- [ ] 1.5 Configure ESLint and Prettier for code quality
+- [ ] 1.6 Create folder structure (src/routes, src/components, src/stores, src/api, src/lib, src/types)
+- [ ] 1.7 Create .gitignore for Node.js project (node_modules, dist, .env, pnpm-lock.yaml should be committed)
+
+## 2. State Management Setup
+
+- [ ] 2.1 Create cartStore with Zustand and localStorage persistence
+- [ ] 2.2 Create favoritesStore with Zustand and localStorage persistence
+- [ ] 2.3 Create productCacheStore for caching fetched products
+- [ ] 2.4 Add selectors for cart total, item count, and enriched cart items
+- [ ] 2.5 Add selectors for favorites count
+
+## 3. API Integration
+
+- [ ] 3.1 Create API client module (src/api/client.ts) with fetch wrapper and error handling
+- [ ] 3.2 Create types for API responses (Product, Category, Cart, Favorites)
+- [ ] 3.3 Implement getProducts() function to fetch from FakeStoreAPI
+- [ ] 3.4 Implement getCategories() function
+- [ ] 3.5 Add error handling and loading states to API calls
+- [ ] 3.6 Implement caching logic to prevent duplicate API calls
+
+## 4. Routing Setup
+
+- [ ] 4.1 Set up TanStack Router with file-based routing
+- [ ] 4.2 Create root layout route with header and navigation
+- [ ] 4.3 Create home/products listing page route
+- [ ] 4.4 Create product detail page route with loader
+- [ ] 4.5 Create checkout/cart page route
+- [ ] 4.6 Create favorites page route (optional)
+- [ ] 4.7 Configure route loaders to prefetch data
+
+## 5. UI Components
+
+- [ ] 5.1 Create Header component with logo, navigation, search, cart icon, favorites link
+- [ ] 5.2 Create ProductCard component with image, title, price, Add to Cart, Favorite buttons
+- [ ] 5.3 Create SearchBar component with debounced input (300ms)
+- [ ] 5.4 Create CategoryFilter component (dropdown)
+- [ ] 5.5 Create CartDrawer component with items, quantities, prices, totals
+- [ ] 5.6 Create CartItem component for drawer
+- [ ] 5.7 Create Toast notification component (success, error, info)
+- [ ] 5.8 Create LoadingSkeleton component for products
+- [ ] 5.9 Create Button component with primary, secondary, disabled states
+- [ ] 5.10 Create PriceFormatter utility component
+
+## 6. Product Catalog Pages
+
+- [ ] 6.1 Create ProductListingPage with grid layout
+- [ ] 6.2 Implement product fetching and caching on page load
+- [ ] 6.3 Add search functionality with debounce
+- [ ] 6.4 Add category filtering
+- [ ] 6.5 Add "Load More" button for pagination
+- [ ] 6.6 Implement loading skeleton states
+- [ ] 6.7 Implement error state with retry button
+- [ ] 6.8 Add empty state message for no results
+- [ ] 6.9 Create ProductDetailPage with full product info
+- [ ] 6.10 Add quantity selector on detail page
+- [ ] 6.11 Add Add to Cart button on detail page
+- [ ] 6.12 Add Favorite button on detail page
+- [ ] 6.13 Implement related products or back-to-listing link
+
+## 7. Cart & Checkout Functionality
+
+- [ ] 7.1 Implement addToCart action in cartStore
+- [ ] 7.2 Implement removeFromCart action
+- [ ] 7.3 Implement updateQuantity action
+- [ ] 7.4 Create cart total selector
+- [ ] 7.5 Create cart item count badge
+- [ ] 7.6 Create CartPage/CheckoutPage with item summary
+- [ ] 7.7 Add optional checkout form (name, email, address)
+- [ ] 7.8 Implement completePurchase action (clears cart, shows confirmation)
+- [ ] 7.9 Add confirmation message after checkout
+- [ ] 7.10 Add "Continue Shopping" button on checkout
+
+## 8. Favorites Management
+
+- [ ] 8.1 Implement toggleFavorite action in favoritesStore
+- [ ] 8.2 Create visual favorite indicator (filled/outline heart)
+- [ ] 8.3 Create FavoritesPage with grid of favorited products
+- [ ] 8.4 Add empty state for favorites page
+- [ ] 8.5 Add remove from favorites on favorites page
+- [ ] 8.6 Test favorites persistence across reload
+
+## 9. Responsive Design & Styling
+
+- [ ] 9.1 Style Header with Tailwind (responsive navigation, logo, search, icons)
+- [ ] 9.2 Style ProductCard with Tailwind (image, title, price, buttons)
+- [ ] 9.3 Style ProductListingPage grid (1 col mobile, 2 col tablet, 4 col desktop)
+- [ ] 9.4 Style ProductDetailPage (image, info, quantity, actions)
+- [ ] 9.5 Style CartDrawer with responsive layout
+- [ ] 9.6 Style CheckoutPage with summary and form
+- [ ] 9.7 Style SearchBar and CategoryFilter
+- [ ] 9.8 Implement mobile-first breakpoints (sm, md, lg, xl)
+- [ ] 9.9 Add hover and active states for interactive elements
+- [ ] 9.10 Test responsive layout on mobile, tablet, desktop viewports
+
+## 10. Error Handling & User Feedback
+
+- [ ] 10.1 Create Toast notification service
+- [ ] 10.2 Add success toast for add to cart
+- [ ] 10.3 Add success toast for favorite toggle
+- [ ] 10.4 Add error toast for API failures
+- [ ] 10.5 Implement retry mechanism for failed API calls
+- [ ] 10.6 Add error boundaries for component failures
+- [ ] 10.7 Create error page for 404 and general errors
+
+## 11. Accessibility & Semantic HTML
+
+- [ ] 11.1 Use semantic HTML (header, nav, main, section, article, footer)
+- [ ] 11.2 Add ARIA labels to buttons and interactive elements
+- [ ] 11.3 Ensure keyboard navigation works (Tab, Enter, Escape)
+- [ ] 11.4 Add focus states for accessibility
+- [ ] 11.5 Test color contrast for readability
+- [ ] 11.6 Add alt text for product images
+
+## 12. Testing Setup
+
+- [ ] 12.1 Install and configure Playwright
+- [ ] 12.2 Create test fixtures and helpers
+- [ ] 12.3 Set up API mocking with page.route
+- [ ] 12.4 Create mock product data for tests
+
+## 13. End-to-End Tests
+
+- [ ] 13.1 Write test for product listing page displays products
+- [ ] 13.2 Write test for search functionality with results
+- [ ] 13.3 Write test for search with no results
+- [ ] 13.4 Write test for add to cart from listing
+- [ ] 13.5 Write test for add to cart from detail page
+- [ ] 13.6 Write test for update cart quantity
+- [ ] 13.7 Write test for remove from cart
+- [ ] 13.8 Write test for cart persists across reload
+- [ ] 13.9 Write test for favorite toggle
+- [ ] 13.10 Write test for favorite persists across reload
+- [ ] 13.11 Write test for checkout flow and cart clear
+- [ ] 13.12 Write test for navigation between routes
+- [ ] 13.13 Write test for responsive mobile layout
+- [ ] 13.14 Write test for responsive desktop layout
+
+## 14. Documentation & Final Polish
+
+- [ ] 14.1 Create README.md with project overview and setup instructions
+- [ ] 14.2 Document folder structure and module organization
+- [ ] 14.3 Document API integration and FakeStoreAPI usage
+- [ ] 14.4 Document Zustand stores and how to use them
+- [ ] 14.5 Document available pnpm scripts (dev, build, test, lint, format)
+- [ ] 14.6 Add comments to complex logic if needed
+- [ ] 14.7 Run all tests and ensure they pass
+- [ ] 14.8 Test production build with `pnpm build` and preview
+- [ ] 14.9 Verify no console errors or warnings in dev and prod
+- [ ] 14.10 Final code review and cleanup
