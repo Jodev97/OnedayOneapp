@@ -1,63 +1,63 @@
 ## 1. Project Setup & Configuration
 
-- [ ] 1.1 Initialize Vite project with React 18 and TypeScript
-- [ ] 1.2 Install core dependencies with pnpm (TanStack Router, Zustand, Tailwind CSS)
-- [ ] 1.3 Configure TypeScript with strict mode (tsconfig.json)
-- [ ] 1.4 Set up Tailwind CSS with configuration file
-- [ ] 1.5 Configure ESLint and Prettier for code quality
-- [ ] 1.6 Create folder structure (src/routes, src/components, src/stores, src/api, src/lib, src/types)
-- [ ] 1.7 Create .gitignore for Node.js project (node_modules, dist, .env, pnpm-lock.yaml should be committed)
+- [x] 1.1 Initialize Vite project with React 18 and TypeScript
+- [x] 1.2 Install core dependencies with pnpm (TanStack Router, Zustand, Tailwind CSS)
+- [x] 1.3 Configure TypeScript with strict mode (tsconfig.json)
+- [x] 1.4 Set up Tailwind CSS with configuration file
+- [x] 1.5 Configure ESLint and Prettier for code quality
+- [x] 1.6 Create folder structure (src/routes, src/components, src/stores, src/api, src/lib, src/types)
+- [x] 1.7 Create .gitignore for Node.js project (node_modules, dist, .env, pnpm-lock.yaml should be committed)
 
 ## 2. State Management Setup
 
-- [ ] 2.1 Create cartStore with Zustand and localStorage persistence
-- [ ] 2.2 Create favoritesStore with Zustand and localStorage persistence
-- [ ] 2.3 Create productCacheStore for caching fetched products
-- [ ] 2.4 Add selectors for cart total, item count, and enriched cart items
-- [ ] 2.5 Add selectors for favorites count
+- [x] 2.1 Create cartStore with Zustand and localStorage persistence
+- [x] 2.2 Create favoritesStore with Zustand and localStorage persistence
+- [x] 2.3 Create productCacheStore for caching fetched products
+- [x] 2.4 Add selectors for cart total, item count, and enriched cart items
+- [x] 2.5 Add selectors for favorites count
 
 ## 3. API Integration
 
-- [ ] 3.1 Create API client module (src/api/client.ts) with fetch wrapper and error handling
-- [ ] 3.2 Create types for API responses (Product, Category, Cart, Favorites)
-- [ ] 3.3 Implement getProducts() function to fetch from FakeStoreAPI
-- [ ] 3.4 Implement getCategories() function
-- [ ] 3.5 Add error handling and loading states to API calls
-- [ ] 3.6 Implement caching logic to prevent duplicate API calls
+- [x] 3.1 Create API client module (src/api/client.ts) with fetch wrapper and error handling
+- [x] 3.2 Create types for API responses (Product, Category, Cart, Favorites)
+- [x] 3.3 Implement getProducts() function to fetch from FakeStoreAPI
+- [x] 3.4 Implement getCategories() function
+- [x] 3.5 Add error handling and loading states to API calls
+- [x] 3.6 Implement caching logic to prevent duplicate API calls
 
 ## 4. Routing Setup
 
-- [ ] 4.1 Set up TanStack Router with file-based routing
-- [ ] 4.2 Create root layout route with header and navigation
-- [ ] 4.3 Create home/products listing page route
-- [ ] 4.4 Create product detail page route with loader
-- [ ] 4.5 Create checkout/cart page route
-- [ ] 4.6 Create favorites page route (optional)
-- [ ] 4.7 Configure route loaders to prefetch data
+- [x] 4.1 Set up TanStack Router with file-based routing
+- [x] 4.2 Create root layout route with header and navigation
+- [x] 4.3 Create home/products listing page route
+- [x] 4.4 Create product detail page route with loader
+- [x] 4.5 Create checkout/cart page route
+- [x] 4.6 Create favorites page route (optional)
+- [x] 4.7 Configure route loaders to prefetch data
 
 ## 5. UI Components
 
-- [ ] 5.1 Create Header component with logo, navigation, search, cart icon, favorites link
-- [ ] 5.2 Create ProductCard component with image, title, price, Add to Cart, Favorite buttons
+- [x] 5.1 Create Header component with logo, navigation, search, cart icon, favorites link
+- [x] 5.2 Create ProductCard component with image, title, price, Add to Cart, Favorite buttons
 - [ ] 5.3 Create SearchBar component with debounced input (300ms)
 - [ ] 5.4 Create CategoryFilter component (dropdown)
 - [ ] 5.5 Create CartDrawer component with items, quantities, prices, totals
 - [ ] 5.6 Create CartItem component for drawer
-- [ ] 5.7 Create Toast notification component (success, error, info)
+- [x] 5.7 Create Toast notification component (success, error, info)
 - [ ] 5.8 Create LoadingSkeleton component for products
-- [ ] 5.9 Create Button component with primary, secondary, disabled states
+- [x] 5.9 Create Button component with primary, secondary, disabled states
 - [ ] 5.10 Create PriceFormatter utility component
 
 ## 6. Product Catalog Pages
 
-- [ ] 6.1 Create ProductListingPage with grid layout
-- [ ] 6.2 Implement product fetching and caching on page load
-- [ ] 6.3 Add search functionality with debounce
-- [ ] 6.4 Add category filtering
-- [ ] 6.5 Add "Load More" button for pagination
+- [x] 6.1 Create ProductListingPage with grid layout
+- [x] 6.2 Implement product fetching and caching on page load
+- [x] 6.3 Add search functionality with debounce
+- [x] 6.4 Add category filtering
+- [x] 6.5 Add "Load More" button for pagination
 - [ ] 6.6 Implement loading skeleton states
-- [ ] 6.7 Implement error state with retry button
-- [ ] 6.8 Add empty state message for no results
+- [x] 6.7 Implement error state with retry button
+- [x] 6.8 Add empty state message for no results
 - [ ] 6.9 Create ProductDetailPage with full product info
 - [ ] 6.10 Add quantity selector on detail page
 - [ ] 6.11 Add Add to Cart button on detail page
@@ -66,25 +66,25 @@
 
 ## 7. Cart & Checkout Functionality
 
-- [ ] 7.1 Implement addToCart action in cartStore
-- [ ] 7.2 Implement removeFromCart action
-- [ ] 7.3 Implement updateQuantity action
-- [ ] 7.4 Create cart total selector
-- [ ] 7.5 Create cart item count badge
-- [ ] 7.6 Create CartPage/CheckoutPage with item summary
-- [ ] 7.7 Add optional checkout form (name, email, address)
-- [ ] 7.8 Implement completePurchase action (clears cart, shows confirmation)
-- [ ] 7.9 Add confirmation message after checkout
-- [ ] 7.10 Add "Continue Shopping" button on checkout
+- [x] 7.1 Implement addToCart action in cartStore
+- [x] 7.2 Implement removeFromCart action
+- [x] 7.3 Implement updateQuantity action
+- [x] 7.4 Create cart total selector
+- [x] 7.5 Create cart item count badge
+- [x] 7.6 Create CartPage/CheckoutPage with item summary
+- [x] 7.7 Add optional checkout form (name, email, address)
+- [x] 7.8 Implement completePurchase action (clears cart, shows confirmation)
+- [x] 7.9 Add confirmation message after checkout
+- [x] 7.10 Add "Continue Shopping" button on checkout
 
 ## 8. Favorites Management
 
-- [ ] 8.1 Implement toggleFavorite action in favoritesStore
-- [ ] 8.2 Create visual favorite indicator (filled/outline heart)
-- [ ] 8.3 Create FavoritesPage with grid of favorited products
-- [ ] 8.4 Add empty state for favorites page
-- [ ] 8.5 Add remove from favorites on favorites page
-- [ ] 8.6 Test favorites persistence across reload
+- [x] 8.1 Implement toggleFavorite action in favoritesStore
+- [x] 8.2 Create visual favorite indicator (filled/outline heart)
+- [x] 8.3 Create FavoritesPage with grid of favorited products
+- [x] 8.4 Add empty state for favorites page
+- [x] 8.5 Add remove from favorites on favorites page
+- [x] 8.6 Test favorites persistence across reload
 
 ## 9. Responsive Design & Styling
 
@@ -120,10 +120,10 @@
 
 ## 12. Testing Setup
 
-- [ ] 12.1 Install and configure Playwright
-- [ ] 12.2 Create test fixtures and helpers
-- [ ] 12.3 Set up API mocking with page.route
-- [ ] 12.4 Create mock product data for tests
+- [x] 12.1 Install and configure Playwright
+- [x] 12.2 Create test fixtures and helpers
+- [x] 12.3 Set up API mocking with page.route
+- [x] 12.4 Create mock product data for tests
 
 ## 13. End-to-End Tests
 
@@ -144,11 +144,11 @@
 
 ## 14. Documentation & Final Polish
 
-- [ ] 14.1 Create README.md with project overview and setup instructions
-- [ ] 14.2 Document folder structure and module organization
-- [ ] 14.3 Document API integration and FakeStoreAPI usage
-- [ ] 14.4 Document Zustand stores and how to use them
-- [ ] 14.5 Document available pnpm scripts (dev, build, test, lint, format)
+- [x] 14.1 Create README.md with project overview and setup instructions
+- [x] 14.2 Document folder structure and module organization
+- [x] 14.3 Document API integration and FakeStoreAPI usage
+- [x] 14.4 Document Zustand stores and how to use them
+- [x] 14.5 Document available pnpm scripts (dev, build, test, lint, format)
 - [ ] 14.6 Add comments to complex logic if needed
 - [ ] 14.7 Run all tests and ensure they pass
 - [ ] 14.8 Test production build with `pnpm build` and preview
