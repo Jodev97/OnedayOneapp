@@ -97,7 +97,7 @@
 - [x] 9.7 Style SearchBar and CategoryFilter
 - [x] 9.8 Implement mobile-first breakpoints (sm, md, lg, xl)
 - [x] 9.9 Add hover and active states for interactive elements
-- [ ] 9.10 Test responsive layout on mobile, tablet, desktop viewports
+- [x] 9.10 Test responsive layout on mobile, tablet, desktop viewports
 
 ## 10. Error Handling & User Feedback
 
@@ -150,7 +150,7 @@
 - [x] 14.4 Document Zustand stores and how to use them
 - [x] 14.5 Document available pnpm scripts (dev, build, test, lint, format)
 - [x] 14.6 Add comments to complex logic if needed
-- [ ] 14.7 Run all tests and ensure they pass
-- [ ] 14.8 Test production build with `pnpm build` and preview
-- [ ] 14.9 Verify no console errors or warnings in dev and prod
-- [ ] 14.10 Final code review and cleanup
+- [x] 14.7 Run all tests and ensure they pass
+- [x] 14.8 Test production build with `pnpm build` and preview
+- [x] 14.9 Verify no console errors or warnings in dev and prod
+- [x] 14.10 Final code review and cleanup
