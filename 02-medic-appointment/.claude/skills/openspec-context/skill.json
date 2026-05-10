@@ -1,0 +1,28 @@
+{
+  "name": "openspec-context",
+  "version": "1.0.0",
+  "description": "Generate and refine initial OpenSpec context structure for projects",
+  "author": "Claude Code",
+  "keywords": [
+    "openspec",
+    "specifications",
+    "project-planning",
+    "requirements",
+    "documentation"
+  ],
+  "triggers": [
+    "openspec-context",
+    "create openspec",
+    "generate specs",
+    "initialize project structure"
+  ],
+  "entry": "index.js",
+  "permissions": [
+    "read",
+    "write"
+  ],
+  "config": {
+    "maxRefinementCycles": 5,
+    "specOutput": "/openspec/specs/"
+  }
+}
