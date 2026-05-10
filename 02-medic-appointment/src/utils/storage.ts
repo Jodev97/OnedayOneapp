@@ -79,6 +79,25 @@ export const updateAppointment = (
   }
 }
 
+export const deleteAppointment = (appointmentId: string): boolean => {
+  try {
+    const stored = localStorage.getItem(APPOINTMENTS_KEY)
+    const appointments: Appointment[] = stored ? JSON.parse(stored) : []
+
+    const filtered = appointments.filter((apt) => apt.id !== appointmentId)
+
+    if (filtered.length === appointments.length) {
+      return false
+    }
+
+    localStorage.setItem(APPOINTMENTS_KEY, JSON.stringify(filtered))
+    return true
+  } catch (error) {
+    console.error('Failed to delete appointment:', error)
+    return false
+  }
+}
+
 export const clearAppointments = (): void => {
   localStorage.removeItem(APPOINTMENTS_KEY)
 }
