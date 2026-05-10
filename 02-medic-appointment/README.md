@@ -159,6 +159,180 @@ VITE_ENABLE_DEV_TOOLS=true
 - **Comments**: Only for non-obvious logic
 - **Imports**: Use path aliases (`@/`) for cleaner imports
 
+## 🏛️ Spec-Driven Development Workflow
+
+This project uses **Spec-Driven Development** to manage feature implementation systematically. Each feature goes through a structured workflow.
+
+### Getting Started: Creating Project Context
+
+**First Step**: Generate the initial project context structure using OpenSpec.
+
+```bash
+# Generate initial context with project specifications
+/opsx:context
+```
+
+This creates three foundational specification files:
+- **agents.md** — Coding standards, agent behavior, and UI guidelines for the project
+- **project.md** — Main project specification with overview, features, and architecture
+- **assumptions.md** — Tracked assumptions by category and impact level
+
+**Purpose**: These context files ensure all feature proposals are aligned with project standards and constraints. They answer:
+- How should agents code this project?
+- What's the technical architecture?
+- What assumptions guide development decisions?
+
+**When to use**: 
+- At project start to establish baseline standards
+- When onboarding new developers
+- When significant architectural decisions need to be documented
+- When project scope or constraints change
+
+### Workflow Phases
+
+1. **Proposal Phase** (`proposal.md`)
+   - Define the problem being solved
+   - List what changes and their impact
+   - Identify new and modified capabilities
+   - Keep focused on "why" not "how"
+
+2. **Design Phase** (`design.md`)
+   - Explain technical approach and decisions
+   - Document trade-offs and risks
+   - Define goals and non-goals
+   - Provide migration/deployment plan
+
+3. **Specifications Phase** (`specs/**/*.md`)
+   - Define detailed requirements for each capability
+   - Write testable scenarios in WHEN/THEN format
+   - Create one spec file per capability
+   - Use ADDED/MODIFIED/REMOVED requirement headers
+
+4. **Implementation Phase** (`tasks.md`)
+   - Break down specs into concrete, trackable tasks
+   - Group tasks by logical components
+   - Order by dependencies
+   - Each task should be completable in one session
+
+### Using OpenSpec Skills
+
+#### 1️⃣ Create Project Context (First Step)
+```bash
+/opsx:context
+```
+Generates initial specification files:
+- `agents.md` — Coding standards and UI guidelines
+- `project.md` — Project overview and architecture
+- `assumptions.md` — Critical assumptions and constraints
+
+This ensures all features align with project standards.
+
+#### 2️⃣ Propose a New Feature
+```bash
+/opsx:propose feature-name
+# or
+/opsx:propose how user can do <something>
+```
+Creates all artifacts in one step:
+- `proposal.md` — Why the feature is needed
+- `design.md` — Technical approach and decisions
+- `specs/**/*.md` — Detailed requirements
+- `tasks.md` — Implementation checklist (31 tasks typical)
+
+#### 3️⃣ Implement the Feature
+```bash
+/opsx:apply feature-name
+```
+Works through tasks sequentially:
+- Reads context files for requirements
+- Shows task-by-task progress
+- Update task checkboxes as you complete them
+- Suggests pausing if blockers are encountered
+
+#### 4️⃣ Archive Completed Work
+```bash
+/opsx:archive feature-name
+```
+Creates learning documentation:
+- Extracts code changes and specs
+- Generates wiki-style documentation
+- Stores in `openspec/archive/` for future reference
+
+#### 5️⃣ Explore Ideas (Optional)
+```bash
+/opsx:explore your idea here
+```
+Thinking partner for clarifying requirements before proposing.
+
+### Complete Workflow Example: Appointment Cancellation
+
+This project demonstrates the full workflow with the `cancel-appointment` change:
+
+**Step 1: Generate Context** (project baseline)
+```bash
+/opsx:context
+# Creates: .openspec/specs/{agents.md, project.md, assumptions.md}
+```
+
+**Step 2: Propose Feature** (what and why)
+```bash
+/opsx:propose how user can cancel an appointment
+# Creates: openspec/changes/cancel-appointment/{proposal.md, design.md, specs/**, tasks.md}
+```
+
+**Step 3: Implement** (build it)
+```bash
+/opsx:apply cancel-appointment
+# Implements all 31 tasks, marking each complete as you code
+```
+
+**Step 4: Archive** (document learnings)
+```bash
+/opsx:archive cancel-appointment
+# Stores in: openspec/archive/cancel-appointment/
+```
+
+**Result Structure**:
+```
+openspec/
+├── specs/                                # Project baseline
+│   ├── agents.md                        # Coding standards
+│   ├── project.md                       # Architecture
+│   └── assumptions.md                   # Constraints
+├── changes/
+│   ├── reschedule-appointment/          # Feature 1 (completed)
+│   └── cancel-appointment/              # Feature 2 (completed)
+│       ├── proposal.md                  # Why users need to cancel
+│       ├── design.md                    # Technical approach & decisions
+│       ├── specs/
+│       │   ├── cancel-appointment-action/
+│       │   └── cancel-confirmation-dialog/
+│       └── tasks.md                     # 31 implementation tasks
+└── archive/
+    └── cancel-appointment/              # Learning documentation
+```
+
+### Key Benefits
+
+- **Clarity**: Context + Proposal + Design establish alignment before coding
+- **Testability**: Specs define WHEN/THEN scenarios that become test cases
+- **Traceability**: Each task links back to specific requirements
+- **Documentation**: Auto-generated learning docs from completed changes
+- **Flexibility**: Update artifacts mid-implementation if design issues emerge
+- **Consistency**: Project context ensures all features follow same standards
+- **Onboarding**: New developers understand project vision, assumptions, and constraints
+
+### Files Structure
+
+```
+openspec/
+├── changes/                              # Feature changes
+│   ├── reschedule-appointment/          # Completed feature
+│   └── cancel-appointment/              # Completed feature
+├── specs/                               # Baseline capability specs (for modified requirements)
+└── archive/                             # Learning docs from completed changes
+```
+
 ## 🚢 Building for Production
 
 ```bash
@@ -175,16 +349,44 @@ Preview the production build:
 pnpm run preview
 ```
 
+## 📚 Completed Features
+
+### ✅ Appointment Rescheduling (`reschedule-appointment`)
+- Users can click "Reschedule" button on any appointment
+- Modal dialog with date/time pickers
+- Form validation with error messages
+- Success notification after rescheduling
+- Appointment list updates immediately
+
+**Implementation Details:**
+- Component: `src/components/RescheduleModal.tsx`
+- Storage: `updateAppointment()` in `src/utils/storage.ts`
+- Integration: `src/pages/AppointmentsPage.tsx`
+
+### ✅ Appointment Cancellation (`cancel-appointment`)
+- Users can click "Cancel" button on any appointment
+- Confirmation dialog showing appointment details
+- Prevents accidental deletion with "Keep Appointment" option
+- Success notification after cancellation
+- Appointment immediately removed from list and localStorage
+
+**Implementation Details:**
+- Component: `src/components/CancelConfirmationDialog.tsx`
+- Storage: `deleteAppointment()` in `src/utils/storage.ts`
+- Integration: `src/pages/AppointmentsPage.tsx`
+
 ## 📚 Next Steps
 
-1. Create feature-specific pages (appointments, doctors, bookings)
-2. Implement appointment booking flow
-3. Add cancel/reschedule functionality
+1. ~~Create feature-specific pages~~ ✅ Done (AppointmentsPage, BookingPage)
+2. ~~Implement appointment booking flow~~ ✅ Done (BookingPage with form validation)
+3. ~~Add cancel/reschedule functionality~~ ✅ Done (both features implemented)
 4. Create sample data generation
-5. Implement localStorage persistence
-6. Add error handling and user feedback
+5. ~~Implement localStorage persistence~~ ✅ Done (storage.ts utilities)
+6. ~~Add error handling and user feedback~~ ✅ Done (modals, notifications, validation)
 7. Set up ESLint and Prettier (optional)
 8. Add unit and integration tests (optional)
+9. Add appointment filtering/search
+10. Implement appointment status tracking (confirmed, completed, cancelled)
 
 ## 🤝 Contributing
 
