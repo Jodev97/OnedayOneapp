@@ -79,6 +79,9 @@ src/
 - Responsive design mobile-first approach
 - Loading states and error states clearly communicated
 
+## TEST 
+- alway finish the feature check the test pass an the app can build
+
 ## Documentation
 - JSDoc comments for complex functions
 - Type definitions serve as primary documentation
