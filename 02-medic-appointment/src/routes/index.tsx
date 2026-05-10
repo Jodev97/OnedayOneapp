@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 export default function HomePage() {
   return (
     <div className="space-y-6">
@@ -6,18 +8,26 @@ export default function HomePage() {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Schedule, manage, and reschedule your medical appointments with ease. Our system provides a seamless experience for booking doctor consultations.
         </p>
+        <div className="flex gap-4 justify-center mt-6">
+          <Link to="/booking" className="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors">
+            Easy Booking
+          </Link>
+          <Link to="/appointments" className="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-900 font-semibold rounded-lg transition-colors">
+            View Appointments
+          </Link>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <FeatureCard
           title="Easy Booking"
-          description="Browse available doctors and book appointments in just a few clicks."
+          description="Schedule new appointments with our simple booking form."
           icon="📅"
         />
         <FeatureCard
-          title="View Availability"
-          description="Check real-time availability of doctors and find the perfect time slot."
-          icon="🔍"
+          title="View Appointments"
+          description="Check all your scheduled appointments in one place."
+          icon="📋"
         />
         <FeatureCard
           title="Manage Appointments"
