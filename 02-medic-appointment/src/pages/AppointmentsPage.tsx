@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { getAppointments, Appointment } from '../utils/storage'
+import { getAppointments, updateAppointment, Appointment } from '../utils/storage'
+import RescheduleModal from '../components/RescheduleModal'
 
 export default function AppointmentsPage() {
   const [appointments, setAppointments] = useState<Appointment[]>([])
+  const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(null)
+  const [showRescheduleModal, setShowRescheduleModal] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
 
   useEffect(() => {
     const loadAppointments = () => {
@@ -20,6 +24,38 @@ export default function AppointmentsPage() {
     return () => window.removeEventListener('storage', handleStorageChange)
   }, [])
 
+  const handleRescheduleClick = (appointment: Appointment) => {
+    setSelectedAppointment(appointment)
+    setShowRescheduleModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setShowRescheduleModal(false)
+    setSelectedAppointment(null)
+  }
+
+  const handleSaveReschedule = async (newDate: string, newTime: string) => {
+    if (!selectedAppointment) return
+
+    try {
+      // Simulate async operation
+      await new Promise((resolve) => setTimeout(resolve, 500))
+
+      const updated = updateAppointment(selectedAppointment.id, { date: newDate, time: newTime })
+      if (updated) {
+        setAppointments(getAppointments())
+        setSuccessMessage('Appointment rescheduled successfully!')
+        setShowRescheduleModal(false)
+        setSelectedAppointment(null)
+
+        // Clear success message after 3 seconds
+        setTimeout(() => setSuccessMessage(''), 3000)
+      }
+    } catch (error) {
+      console.error('Failed to reschedule appointment:', error)
+    }
+  }
+
   return (
     <div className="max-w-4xl mx-auto py-8">
       <div className="flex justify-between items-center mb-8">
@@ -31,6 +67,15 @@ export default function AppointmentsPage() {
           New Appointment
         </Link>
       </div>
+
+      {successMessage && (
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
+          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <p className="text-green-700 text-sm font-semibold">{successMessage}</p>
+        </div>
+      )}
 
       {appointments.length === 0 ? (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
@@ -80,10 +125,24 @@ export default function AppointmentsPage() {
                     </div>
                   )}
                 </div>
+                <button
+                  onClick={() => handleRescheduleClick(appointment)}
+                  className="ml-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors whitespace-nowrap"
+                >
+                  Reschedule
+                </button>
               </div>
             </div>
           ))}
         </div>
+      )}
+
+      {showRescheduleModal && selectedAppointment && (
+        <RescheduleModal
+          appointment={selectedAppointment}
+          onClose={handleCloseModal}
+          onSave={handleSaveReschedule}
+        />
       )}
     </div>
   )
