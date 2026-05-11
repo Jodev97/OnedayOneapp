@@ -4,11 +4,11 @@
 
 ### Layout Structure
 
-All pages inherit the base layout from `/app/layout.tsx` which includes:
-- Header with navigation and theme toggle
-- Sidebar navigation (optional)
+All pages inherit the base layout from `src/app/Layout.tsx` which includes:
+- Header with navigation and theme toggle (built with Tailwind CSS)
+- Sidebar navigation (optional, built with Tailwind CSS)
 - Main content area
-- Footer
+- Footer (built with Tailwind CSS)
 
 ---
 
@@ -562,11 +562,11 @@ interface ArticleCardProps {
 ## Performance Considerations
 
 ### Image Optimization
-- Use Next.js Image component
+- Use HTML img element with loading="lazy" attribute
 - Lazy loading for off-screen images
-- Responsive srcSet
-- WebP with fallbacks
-- Placeholder blur while loading
+- Responsive srcSet for different screen sizes
+- WebP with fallbacks for browser compatibility
+- Placeholder while loading (CSS background or skeleton)
 
 ### Code Splitting
 - Route-based splitting

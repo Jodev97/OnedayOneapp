@@ -5,15 +5,14 @@
 ### File Structure
 
 ```
-/app
-  globals.css          # Main theme + Tailwind imports
-/styles
-  globals.css          # Alternative/light mode styles
-/components
-  ui/                  # Shadcn UI components
-    *.tsx             # Pre-built components with CSS modules
-  page-components/    # Page-specific components
-/public/styles/       # Global utility styles (optional)
+/src
+  /styles
+    globals.css       # Main theme + Tailwind imports + CSS variables
+  /components
+    /ui               # Reusable UI components (buttons, cards, inputs, etc.)
+    /*.tsx            # Component implementations using Tailwind CSS only
+  /pages              # Page components (route-based)
+  app.tsx             # Root App component with providers
 ```
 
 ### CSS Imports & Cascading
@@ -61,8 +60,8 @@
 // tailwind.config.ts
 export default {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './index.html',
   ],
   theme: {
     extend: {
@@ -70,13 +69,24 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: 'var(--primary)',
+        'primary-foreground': 'var(--primary-foreground)',
         secondary: 'var(--secondary)',
+        'secondary-foreground': 'var(--secondary-foreground)',
+        card: 'var(--card)',
+        'card-foreground': 'var(--card-foreground)',
         accent: 'var(--accent)',
-        // ... other colors as CSS variables
+        'accent-foreground': 'var(--accent-foreground)',
+        muted: 'var(--muted)',
+        'muted-foreground': 'var(--muted-foreground)',
+        destructive: 'var(--destructive)',
+        'destructive-foreground': 'var(--destructive-foreground)',
+        border: 'var(--border)',
+        input: 'var(--input)',
+        ring: 'var(--ring)',
       },
       fontFamily: {
-        sans: ['Geist', 'Geist Fallback'],
-        mono: ['Geist Mono', 'Geist Mono Fallback'],
+        sans: ['Geist', 'Geist Fallback', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['Geist Mono', 'Geist Mono Fallback', 'monospace'],
       },
       borderRadius: {
         sm: 'calc(var(--radius) - 4px)',
@@ -684,14 +694,14 @@ Graphics & UI:          3:1 minimum
 
 ## Implementation Checklist
 
-- [ ] Copy template's `globals.css` to app
-- [ ] Copy theme variables from template
-- [ ] Update `tailwind.config.ts` with theme colors
-- [ ] Implement dark mode toggle in ThemeProvider
-- [ ] Import Geist fonts
-- [ ] Set up CSS variables for colors
-- [ ] Test responsive breakpoints
-- [ ] Verify dark mode colors
-- [ ] Check accessibility contrast ratios
-- [ ] Test keyboard navigation
-- [ ] Performance audit (Lighthouse)
+- [ ] Create `src/styles/globals.css` with Tailwind imports
+- [ ] Define CSS variables for colors (OKLch values from design-system.md)
+- [ ] Create `tailwind.config.ts` with theme colors and Geist fonts
+- [ ] Set up dark mode toggle in ThemeProvider
+- [ ] Import Geist fonts via @font-face or Google Fonts
+- [ ] Configure CSS variables for all design system colors
+- [ ] Test responsive breakpoints (mobile, tablet, desktop)
+- [ ] Verify dark mode colors and transitions
+- [ ] Check color contrast ratios (4.5:1 for text)
+- [ ] Test keyboard navigation and focus states
+- [ ] Performance audit (Lighthouse, CSS file size)

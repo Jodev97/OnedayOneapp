@@ -2,7 +2,7 @@
 
 ## Overview
 
-This design system provides comprehensive guidelines for building consistent, accessible, and visually appealing UI components for the Manga Blog Application. Based on the template's Shadcn UI and Tailwind CSS architecture.
+This design system provides comprehensive guidelines for building consistent, accessible, and visually appealing UI components for the Manga Blog Application. Based on the  Tailwind CSS architecture.
 
 ---
 
@@ -276,16 +276,16 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
 
 ---
 
-## Component Library Reference
+## Component Implementation
 
-All components are located in `/template/components/ui/`:
-- Button, Link, Badge
-- Card, Container, Alert
-- Form, Input, Select, Checkbox, Radio
-- Dialog, Modal, Popover, Tooltip
-- Table, List, Pagination
-- Sidebar, Navigation, Tabs
-- Loading states, Empty states, Skeletons
+All components are built using Tailwind CSS utilities without external UI libraries:
+- Buttons, Links, Badges (Tailwind utilities)
+- Cards, Containers, Alerts (semantic HTML + Tailwind)
+- Forms, Inputs, Selects, Checkboxes, Radios (HTML5 + Tailwind styling)
+- Dialogs, Modals, Popovers, Tooltips (custom implementations with Tailwind)
+- Tables, Lists, Pagination (HTML elements + Tailwind)
+- Sidebar, Navigation, Tabs (custom React components + Tailwind)
+- Loading states, Empty states, Skeletons (custom React + animations)
 
 ---
 
