@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { GENRES } from '@/types/manga'
+import { useMangaData } from '@/hooks/useMangaData'
+import MangaCard from '@/components/manga/MangaCard'
+import MangaSkeleton from '@/components/shared/MangaSkeleton'
 
 interface GenreBrowserProps {
   onGenreSelect?: (genre: string | null) => void
@@ -7,6 +10,9 @@ interface GenreBrowserProps {
 
 export default function GenreBrowser({ onGenreSelect }: GenreBrowserProps) {
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
+  const { manga: genreManga, loading, error } = useMangaData({
+    genre: selectedGenre || undefined,
+  })
 
   const handleGenreClick = (genre: string | null) => {
     setSelectedGenre(genre)
@@ -55,10 +61,30 @@ export default function GenreBrowser({ onGenreSelect }: GenreBrowserProps) {
         </div>
 
         {selectedGenre && (
-          <div className="mt-10 p-6 bg-slate-900 border border-cyan-500/30 rounded-xl">
-            <p className="text-slate-200 font-medium text-lg">
-              Showing manga in the <span className="font-black text-cyan-400">{selectedGenre}</span> genre
-            </p>
+          <div className="mt-10">
+            <div className="mb-8 p-6 bg-slate-900 border border-cyan-500/30 rounded-xl">
+              <p className="text-slate-200 font-medium text-lg">
+                Showing manga in the <span className="font-black text-cyan-400">{selectedGenre}</span> genre
+              </p>
+            </div>
+
+            {error && (
+              <div className="bg-red-950/50 border border-red-500/50 rounded-lg p-4 mb-8 text-red-200">
+                {error}
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {loading
+                ? Array.from({ length: 10 }).map((_, i) => <MangaSkeleton key={i} />)
+                : genreManga.map((manga) => (
+                    <MangaCard
+                      key={manga.id}
+                      manga={manga}
+                      onClick={() => console.log(`Navigate to manga: ${manga.title}`)}
+                    />
+                  ))}
+            </div>
           </div>
         )}
       </div>

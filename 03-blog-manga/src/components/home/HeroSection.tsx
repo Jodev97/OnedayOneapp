@@ -1,4 +1,10 @@
+import { useMangaData } from '@/hooks/useMangaData'
+import MangaCard from '@/components/manga/MangaCard'
+import MangaSkeleton from '@/components/shared/MangaSkeleton'
+
 export default function HeroSection() {
+  const { manga: featuredManga, loading, error } = useMangaData({ featured: true, limit: 5 })
+
   const stats = [
     { label: 'Total Manga', value: '50,000+', icon: '📚' },
     { label: 'Total Chapters', value: '1.5M+', icon: '📖' },
@@ -59,6 +65,25 @@ export default function HeroSection() {
               <p className="text-sm text-slate-400 font-medium">per month</p>
             </div>
           ))}
+        </div>
+
+        {/* Featured Manga Section */}
+        <div className="mt-20">
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-8">Top Rated This Season</h2>
+
+          {error && (
+            <div className="bg-red-950/50 border border-red-500/50 rounded-lg p-4 mb-8 text-red-200">
+              {error}
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {loading
+              ? Array.from({ length: 5 }).map((_, i) => <MangaSkeleton key={i} />)
+              : featuredManga.map((manga) => (
+                  <MangaCard key={manga.id} manga={manga} />
+                ))}
+          </div>
         </div>
       </div>
     </section>
