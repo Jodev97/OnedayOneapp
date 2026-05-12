@@ -83,8 +83,12 @@ class JikanService {
       volumes: jikanManga.volumes,
       rating: jikanManga.score || 0,
       score: jikanManga.score,
+      rank: jikanManga.rank,
+      popularity: jikanManga.popularity,
+      type: jikanManga.type,
       genres: jikanManga.genres.map((g) => g.name),
       authors: jikanManga.authors?.map((a) => a.name) || [],
+      serialization: jikanManga.serializations?.map((s) => s.name).join(', ') || '',
     }
   }
 

@@ -13,6 +13,10 @@ export interface Manga {
   volumes?: number
   rating?: number
   score?: number
+  rank?: number
+  popularity?: number
+  type?: string
+  serialization?: string
   genres: string[]
   authors?: string[]
   malId?: number

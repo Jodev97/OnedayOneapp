@@ -1,6 +1,7 @@
 import { RootRoute, Route, Router } from '@tanstack/react-router'
 import Layout from '@/app/Layout'
 import Home from '@/pages/Home'
+import MangaDetail from '@/pages/MangaDetail'
 
 const rootRoute = new RootRoute({
   component: Layout,
@@ -12,7 +13,13 @@ const indexRoute = new Route({
   component: Home,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute])
+const mangaDetailRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: '/manga/$id',
+  component: MangaDetail,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, mangaDetailRoute])
 
 export const router = new Router({ routeTree })
 

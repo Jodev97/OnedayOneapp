@@ -1,3 +1,4 @@
+import { useNavigate } from '@tanstack/react-router'
 import type { Manga } from '@/types/manga'
 
 interface MangaCardProps {
@@ -9,22 +10,38 @@ const statusColors = {
   ongoing: 'bg-emerald-500/95',
   completed: 'text-cyan-400 bg-slate-900/80',
   hiatus: 'bg-orange-500/95',
+  publishing: 'bg-emerald-500/95',
+  finished: 'text-cyan-400 bg-slate-900/80',
+  on_hiatus: 'bg-orange-500/95',
+  discontinued: 'bg-red-500/95',
 }
 
 const statusLabels = {
   ongoing: 'Ongoing',
-  completed: 'Finished Airing',
+  completed: 'Finished',
   hiatus: 'On Hiatus',
+  publishing: 'Publishing',
+  finished: 'Finished',
+  on_hiatus: 'On Hiatus',
+  discontinued: 'Discontinued',
 }
 
 export default function MangaCard({ manga, onClick }: MangaCardProps) {
-  const status = (manga.status as 'ongoing' | 'completed' | 'hiatus') || 'ongoing'
+  const navigate = useNavigate()
+  const status = (manga.status as keyof typeof statusColors) || 'ongoing'
   const statusColor = statusColors[status] || statusColors.ongoing
   const statusLabel = statusLabels[status] || 'Ongoing'
 
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    }
+    navigate({ to: '/manga/$id', params: { id: String(manga.id) } })
+  }
+
   return (
     <div
-      onClick={onClick}
+      onClick={handleClick}
       className="group cursor-pointer rounded-2xl overflow-hidden bg-slate-800 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:-translate-y-3 border border-slate-700 hover:border-cyan-500/60"
     >
       {/* Cover Image Container */}
