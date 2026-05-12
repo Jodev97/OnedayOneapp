@@ -1,0 +1,37 @@
+{
+  "name": "manga-blog",
+  "version": "0.1.0",
+  "description": "A modern web application for browsing and managing manga titles",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/query-devtools": "^5.54.0",
+    "@tanstack/react-query": "^5.54.0",
+    "@tanstack/react-router": "^1.54.0",
+    "@tanstack/router-devtools": "^1.54.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.463.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.4.0",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^20.16.0",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^4.0.0",
+    "terser": "^5.47.1",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.2"
+  }
+}
