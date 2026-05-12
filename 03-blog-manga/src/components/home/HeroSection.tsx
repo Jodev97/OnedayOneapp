@@ -12,13 +12,13 @@ export default function HeroSection() {
           {/* Main Title */}
           <div className="mb-12">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-none">
-              Jikan <br />
+             Manga <br />
               <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Manga API
+              Universe
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed font-medium">
-              Jikan is an unofficial & open-source API for the "most active online manga community and database" — MyAnimeList.
+             Manga is an unofficial & open-source API for the "most active online manga community and database" — MyAnimeList.
             </p>
           </div>
 
