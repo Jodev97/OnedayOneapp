@@ -12,8 +12,15 @@ export default function HeroSection() {
   ]
 
   return (
-    <section className="bg-slate-950 py-20 sm:py-32 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 sm:py-32 border-b border-slate-800 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/assets/images/banner.png)',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/60" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-20">
           {/* Main Title */}
           <div className="mb-12">
