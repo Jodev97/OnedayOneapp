@@ -1,15 +1,34 @@
 export interface Manga {
-  id: number
+  id: string | number
   title: string
-  malId?: number
+  coverUrl?: string
   image?: string
   synopsis?: string
-  status?: 'publishing' | 'finished' | 'on_hiatus' | 'discontinued'
+  description?: string
+  status: 'ongoing' | 'completed' | 'hiatus' | 'publishing' | 'finished' | 'on_hiatus' | 'discontinued'
   startDate?: string
   endDate?: string
   chapters?: number
+  chapterCount?: number
   volumes?: number
+  rating?: number
   score?: number
-  genres?: string[]
+  genres: string[]
   authors?: string[]
+  malId?: number
 }
+
+export type MangaStatus = 'ongoing' | 'completed' | 'hiatus'
+
+export const GENRES = [
+  'Action',
+  'Adventure',
+  'Comedy',
+  'Drama',
+  'Fantasy',
+  'Horror',
+  'Mystery',
+  'Romance',
+  'Sci-Fi',
+  'Slice of Life',
+] as const

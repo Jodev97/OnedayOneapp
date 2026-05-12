@@ -1,5 +1,6 @@
 import { RootRoute, Route, Router } from '@tanstack/react-router'
 import Layout from '@/app/Layout'
+import Home from '@/pages/Home'
 
 const rootRoute = new RootRoute({
   component: Layout,
@@ -8,9 +9,7 @@ const rootRoute = new RootRoute({
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: () => {
-    return <div className="p-4">Welcome to Manga Blog</div>
-  },
+  component: Home,
 })
 
 const routeTree = rootRoute.addChildren([indexRoute])

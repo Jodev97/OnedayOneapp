@@ -26,6 +26,9 @@ export default {
         'chart-3': 'var(--chart-3)',
         'chart-4': 'var(--chart-4)',
         'chart-5': 'var(--chart-5)',
+        'status-ongoing': 'rgb(34, 197, 94)',
+        'status-completed': 'rgb(59, 130, 246)',
+        'status-hiatus': 'rgb(249, 115, 22)',
       },
       fontFamily: {
         sans: ['Geist', 'Geist Fallback', 'system-ui', '-apple-system', 'sans-serif'],

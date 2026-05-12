@@ -2,10 +2,32 @@
 
 :root {
   color-scheme: light;
+
+  --background: white;
+  --foreground: rgb(37, 37, 37);
+  --card: rgb(245, 245, 245);
+  --primary: rgb(59, 130, 246);
+  --secondary: rgb(107, 114, 128);
+  --accent: rgb(139, 92, 246);
+  --destructive: rgb(239, 68, 68);
+  --muted: rgb(229, 231, 235);
+  --border: rgb(229, 231, 235);
+  --input: rgb(243, 244, 246);
 }
 
 .dark {
   color-scheme: dark;
+
+  --background: rgb(17, 24, 39);
+  --foreground: rgb(243, 244, 246);
+  --card: rgb(31, 41, 55);
+  --primary: rgb(59, 130, 246);
+  --secondary: rgb(156, 163, 175);
+  --accent: rgb(168, 85, 247);
+  --destructive: rgb(239, 68, 68);
+  --muted: rgb(55, 65, 81);
+  --border: rgb(55, 65, 81);
+  --input: rgb(55, 65, 81);
 }
 
 @layer base {
